@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const commonConfig = require('./webpack.config.common');
 const scripts = require('./modules/webpack.scripts');
+const styles = require('./modules/webpack.styles');
 
 const prodConfig = (env = { NODE_ENV: 'production', PLATFORM_ENV: 'web' }) => {
   return merge([

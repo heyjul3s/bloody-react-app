@@ -1,7 +1,8 @@
 const merge = require('webpack-merge');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 const scripts = require('./modules/webpack.scripts');
 const styles = require('./modules/webpack.styles');
 const assets = require('./modules/webpack.assets');
@@ -31,29 +32,24 @@ module.exports = env => {
         filename: '[name].[hash:8].js',
       },
       plugins: [
+        new WebpackPwaManifest({
+          name: 'BloodyReactApp',
+          short_name: 'BloodyReact',
+          description: 'A basic Typescript React app boilerplate to help you get started sans middleware store.',
+          background_color: '#ffffff',
+          icons: [
+            {
+              src: config.paths.favicon,
+              sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+            },
+          ]
+        }),
+        new ManifestPlugin({
+          fileName: 'asset-manifest.json'
+        }),
         new HTMLWebpackPlugin({
           title: 'Bloody React App',
           template: config.paths.index
-        }),
-        new FaviconsWebpackPlugin({
-          logo: config.paths.favicon,
-          prefix: 'icons-[hash]/',
-          emitStats: false,
-          persistentCache: true,
-          inject: true,
-          title: 'Bloody React App',
-          icons: {
-            android: true,
-            appleIcon: true,
-            appleStartup: true,
-            coast: false,
-            favicons: true,
-            firefox: true,
-            opengraph: false,
-            twitter: false,
-            yandex: false,
-            windows: false
-          }
         }),
         new CaseSensitivePathsPlugin(),
       ],
