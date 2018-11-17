@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "webpack",
+      "node_modules/**/*.ts"
+    ]
+  },
+  "rules": {
+    "semicolon": {
+      "severity": "warn",
+      "options": [
+        "always",
+        "ignore-bound-class-methods"
+      ]
+    }
+  }
+}

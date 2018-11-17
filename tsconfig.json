@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "allowJs": true,
+    "declaration": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": [
+      "es7",
+      "dom"
+    ],
+    "target": "es5",
+    "removeComments": false,
+    "strict": false,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "newLine": "LF",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "noFallthroughCasesInSwitch": true,
+    "suppressImplicitAnyIndexErrors": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    ".git",
+    "build",
+    "dist",
+    "jest",
+    "node_modules",
+    "webpack",
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "name": "bloody-react-app",
+  "version": "1.0.0",
+  "author": "Julian Low <julian.cy.low@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/heyjul3s/bloody-react-app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heyjul3s/bloody-react-app"
+  },
+  "description": "A basic Typescript React app boilerplate to help you get started sans middleware store.",
+  "main": "./src/index.js",
+  "keywords": [
+    "react",
+    "es6",
+    "es7",
+    "es8",
+    "babel",
+    "javascript",
+    "typescript",
+    "webpack",
+    "webpack 4",
+    "jest",
+    "enzyme"
+  ],
+  "engines": {
+    "node": "10.0.0",
+    "npm": "6.3.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "iOS 8",
+    "iOS 9"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettify",
+      "pre-push": "npm test"
+    }
+  },
+  "sideEffects": false,
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "bower_components"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|scss)$": "identity-obj-proxy"
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>config/enzyme.config.ts",
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.(tsx|ts)?$": "ts-jest",
+      ".+\\.(css|styl|less|sass|scss)$": "<rootDir>/node_modules/jest-css-modules-transform"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(redux-persist)/)"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(ts|tsx|js)$"
+  },
+  "scripts": {
+    "start": "nodemon --watch webpack.config.dev.js --exec \"cross-env BABEL_ENV=development webpack-dev-server --mode development --config config/webpack/webpack.config.dev.js --env.NODE_ENV=development --env.PLATFORM_ENV=web --info --progress --colors --display-error-details\"",
+    "build": "cross-env BABEL_ENV=production webpack --config=config/webpack/webpack.config.prod.js --env.NODE_ENV=production --env.PLATFORM_ENV=web --info --progress --colors --display-error-details",
+    "profile-build": "webpack --mode production --json --profile --progress > build-stats-prod.json",
+    "test": "jest",
+    "test-changed": "jest -o",
+    "test-watch": "jest --watchAll",
+    "test-clear-snaps": "npm run test:watch -u",
+    "prettify": "prettier --write './src/**/*.{ts,tsx}'"
+  },
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-hot-loader": "^4.3.12"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-proposal-decorators": "^7.1.6",
+    "@babel/plugin-syntax-decorators": "^7.1.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.1.0",
+    "@types/enzyme": "^3.1.15",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
+    "@types/jest": "^23.3.9",
+    "@types/node": "^10.12.8",
+    "@types/react": "^16.7.6",
+    "@types/react-dom": "^16.0.9",
+    "@types/webpack-env": "^1.13.6",
+    "autoprefixer": "^9.3.1",
+    "babel-loader": "^8.0.4",
+    "browser-sync": "^2.26.3",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "cache-loader": "^1.2.5",
+    "case-sensitive-paths-webpack-plugin": "^2.1.2",
+    "clean-webpack-plugin": "^1.0.0",
+    "cross-env": "^5.2.0",
+    "css-loader": "^1.0.1",
+    "cssnano": "^4.1.7",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "enzyme-to-json": "^3.3.4",
+    "favicons-webpack-plugin": "0.0.9",
+    "file-loader": "^2.0.0",
+    "fork-ts-checker-webpack-plugin": "^0.4.15",
+    "git-revision-webpack-plugin": "^3.0.3",
+    "glob": "^7.1.3",
+    "happypack": "^5.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.1.4",
+    "image-webpack-loader": "^4.5.0",
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0",
+    "jest-css-modules-transform": "^2.1.1",
+    "lqip-loader": "^2.2.0",
+    "mini-css-extract-plugin": "^0.4.4",
+    "node-sass": "^4.10.0",
+    "nodemon": "^1.18.6",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-flexbugs-fixes": "^4.1.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-sass": "^0.3.5",
+    "prettier": "^1.15.2",
+    "pretty-quick": "^1.8.0",
+    "purify-css": "^1.2.5",
+    "purifycss-webpack": "^0.7.0",
+    "react-test-renderer": "^16.6.3",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-saga-test-plan": "^3.7.0",
+    "sass-loader": "^7.1.0",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^0.23.1",
+    "stylelint": "^9.8.0",
+    "stylelint-config-standard": "^18.2.0",
+    "thread-loader": "^1.2.0",
+    "ts-jest": "^23.10.4",
+    "ts-loader": "^5.3.0",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.16.0",
+    "tslint-react": "^3.6.0",
+    "tslint-webpack-plugin": "^1.2.2",
+    "typescript": "^3.1.6",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.25.1",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10",
+    "webpack-manifest-plugin": "^2.0.4",
+    "webpack-merge": "^4.1.4",
+    "webpack-pwa-manifest": "^3.7.1",
+    "webpack-visualizer-plugin": "^0.1.11"
+  }
+}
