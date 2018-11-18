@@ -79,7 +79,7 @@
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(ts|tsx|js)$"
   },
   "scripts": {
-    "start": "nodemon --watch webpack.config.dev.js --exec \"cross-env BABEL_ENV=development webpack-dev-server --mode development --config config/webpack/webpack.config.dev.js --env.NODE_ENV=development --env.PLATFORM_ENV=web --info --progress --colors --display-error-details\"",
+    "start": "nodemon --watch config/webpack --exec \"cross-env BABEL_ENV=development webpack-dev-server --mode development --config config/webpack/webpack.config.dev.js --env.NODE_ENV=development --env.PLATFORM_ENV=web --info --progress --colors --display-error-details\"",
     "build": "cross-env BABEL_ENV=production webpack --config=config/webpack/webpack.config.prod.js --env.NODE_ENV=production --env.PLATFORM_ENV=web --info --progress --colors --display-error-details",
     "profile-build": "webpack --mode production --json --profile --progress > build-stats-prod.json",
     "test": "jest",
