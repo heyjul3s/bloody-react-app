@@ -40,7 +40,7 @@ module.exports = env => {
           icons: [
             {
               src: config.paths.favicon,
-              sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+              sizes: [96, 128, 192, 256, 384, 512]
             },
           ]
         }),
@@ -59,16 +59,14 @@ module.exports = env => {
     styles.loadCSS(),
     assets.loadFonts({
       options: {
-        name: '[name].[contenthash:4].[ext]',
+        name: '[name].[hash:4].[ext]',
       },
     }),
     assets.loadImages({
       options: {
         limit: 8000,
-        name: "[name].[contenthash:4].[ext]",
+        name: "static/images/[name].[hash:4].[ext]",
       }
     }),
-    assets.minifyImages(),
-    assets.generateImageSizes(),
   ])
 };
