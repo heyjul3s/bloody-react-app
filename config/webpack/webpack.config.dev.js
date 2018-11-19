@@ -28,13 +28,9 @@ const devConfig = (env = { NODE_ENV:'development', PLATFORM_ENV:'web' }) => {
             proxy: config.server.proxy,
           },
           {
-            // prevent BrowserSync from reloading the page
-            // and let Webpack Dev Server take care of this
             reload: false
           }
         ),
-        // Forking out TS lint as a separate process here
-        // for improved speed
         new ForkTsCheckerWebpackPlugin({
           // async to false so that errors are displayed via webpack devserver overlay
           async: false,
