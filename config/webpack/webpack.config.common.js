@@ -65,7 +65,7 @@ module.exports = env => {
     assets.loadImages({
       options: {
         limit: 8000,
-        name: "static/images/[name].[hash:4].[ext]",
+        name: 'static/images/[name].[hash:4].[ext]',
       }
     }),
   ])
