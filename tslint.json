@@ -12,6 +12,7 @@
     ]
   },
   "rules": {
+    "no-use-before-declare": false,
     "semicolon": {
       "severity": "warn",
       "options": [

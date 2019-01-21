@@ -7,6 +7,7 @@ exports.devServer = ({ host, port } = {}) => ({
     stats: 'errors-only',
     host,
     port,
+    open: false,
     overlay: {
       errors: true,
       warnings: true,

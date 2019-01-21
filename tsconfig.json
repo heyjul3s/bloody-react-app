@@ -9,10 +9,7 @@
     "jsx": "react",
     "module": "commonjs",
     "moduleResolution": "node",
-    "lib": [
-      "es7",
-      "dom"
-    ],
+    "lib": ["es7", "dom"],
     "target": "es5",
     "removeComments": false,
     "strict": false,
@@ -33,6 +30,7 @@
   ],
   "exclude": [
     ".git",
+    "coverage",
     "build",
     "dist",
     "jest",

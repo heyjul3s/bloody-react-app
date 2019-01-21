@@ -7,7 +7,7 @@ const DIR_PATH = path.join.bind(this, __dirname);
 const config = {
   paths: {
     app: DIR_PATH('../../src'),
-    build: DIR_PATH('../../dist'),
+    build: DIR_PATH('../../build'),
     index: DIR_PATH('../../src/index.html'),
     tslint: DIR_PATH('../../tslint.json'),
     tsconfig: DIR_PATH('../../tsconfig.json'),

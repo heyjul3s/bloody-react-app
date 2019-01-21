@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./app.sass";
+import "./App.sass";
 
 class App extends React.Component<any, any> {
   public render() {
@@ -10,7 +10,7 @@ class App extends React.Component<any, any> {
         </header>
         <p className="app-content">
           Much work needs to be done. You may start your journey to world
-          domination from <code>src/App.tsx</code>.
+          domination from <code>src/components/App.tsx</code>.
         </p>
       </div>
     );
