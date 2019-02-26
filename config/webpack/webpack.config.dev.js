@@ -43,6 +43,7 @@ const devConfig = (env = { NODE_ENV:'development', PLATFORM_ENV:'web' }) => {
     },
     styles.lintCSS({ include: config.paths.app }),
     serve.devServer({
+      open: false,
       host: config.server.host,
       port: config.server.port,
     }),
