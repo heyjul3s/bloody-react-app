@@ -14,14 +14,11 @@ module.exports = env => {
     utilities.generateSourceMaps({
       type: 'inline-source-map'
     }),
-    utilities.clean(config.paths.build),
+    utilities.clean(),
     {
       bail: true,
       entry: {
-        app: [
-          '@babel/polyfill',
-          config.paths.app
-        ],
+        app: config.paths.app
       },
       resolve: {
         extensions: ['.tsx', '.ts', '.js']
@@ -29,19 +26,20 @@ module.exports = env => {
       output: {
         path: config.paths.build,
         chunkFilename: '[name].[hash:8].js',
-        filename: '[name].[hash:8].js',
+        filename: '[name].[hash:8].js'
       },
       plugins: [
         new WebpackPwaManifest({
           name: 'BloodyReactApp',
           short_name: 'BloodyReact',
-          description: 'A basic Typescript React app boilerplate to help you get started sans middleware store.',
+          description:
+            'A basic Typescript React app boilerplate to help you get started sans middleware store.',
           background_color: '#ffffff',
           icons: [
             {
               src: config.paths.favicon,
               sizes: [96, 128, 192, 256, 384, 512]
-            },
+            }
           ]
         }),
         new ManifestPlugin({
@@ -51,22 +49,22 @@ module.exports = env => {
           title: 'Bloody React App',
           template: config.paths.index
         }),
-        new CaseSensitivePathsPlugin(),
-      ],
+        new CaseSensitivePathsPlugin()
+      ]
     },
     scripts.loadTypescript({ include: config.paths.app }),
     scripts.loadJavaScript({ include: config.paths.app }),
     styles.loadCSS(),
     assets.loadFonts({
       options: {
-        name: '[name].[hash:4].[ext]',
-      },
+        name: '[name].[hash:4].[ext]'
+      }
     }),
     assets.loadImages({
       options: {
         limit: 8000,
-        name: 'static/images/[name].[hash:4].[ext]',
+        name: 'static/images/[name].[hash:4].[ext]'
       }
-    }),
-  ])
+    })
+  ]);
 };

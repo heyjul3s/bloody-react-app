@@ -3,7 +3,6 @@
     "baseUrl": ".",
     "outDir": "dist",
     "rootDir": "src",
-    "allowJs": true,
     "declaration": true,
     "sourceMap": true,
     "jsx": "react",
@@ -25,9 +24,7 @@
     "noFallthroughCasesInSwitch": true,
     "suppressImplicitAnyIndexErrors": true
   },
-  "include": [
-    "src/**/*"
-  ],
+  "include": ["src/**/*"],
   "exclude": [
     ".git",
     "coverage",
@@ -35,6 +32,6 @@
     "dist",
     "jest",
     "node_modules",
-    "webpack",
+    "webpack"
   ]
 }

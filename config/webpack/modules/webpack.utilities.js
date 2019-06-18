@@ -1,16 +1,14 @@
 const webpack = require('webpack');
-const CleanWebpack = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const GitRevision = require('git-revision-webpack-plugin');
 
 exports.clean = (
-  path,
   options = {
     exclude: ['index', 'manifest'],
-    allowExternal: true
-}) => ({
-  plugins: [
-    new CleanWebpack([path], options),
-  ],
+    dangerouslyAllowCleanPatternsOutsideProject: false
+  }
+) => ({
+  plugins: [new CleanWebpackPlugin(options)]
 });
 
 // Generates Build Revision Info
@@ -20,11 +18,11 @@ exports.clean = (
 exports.attachRevision = () => ({
   plugins: [
     new webpack.BannerPlugin({
-      banner: new GitRevision().version(),
-    }),
-  ],
+      banner: new GitRevision().version()
+    })
+  ]
 });
 
 exports.generateSourceMaps = ({ type }) => ({
-  devtool: type,
+  devtool: type
 });
