@@ -12,18 +12,10 @@ const prodConfig = (env = { NODE_ENV: 'production', PLATFORM_ENV: 'web' }) => {
         hints: 'warning',
         maxEntrypointSize: 250000,
         maxAssetSize: 250000
-      },
-      plugins: [
-        new webpack.DefinePlugin({
-          'process.env': {
-            NODE_ENV: JSON.stringify(env.NODE_ENV),
-            PLATFORM_ENV: JSON.stringify(env.PLATFORM_ENV),
-          }
-        }),
-      ],
+      }
     },
     styles.extractCSS(),
-    scripts.minifyJavaScript(),
+    scripts.minifyJavaScript()
   ]);
 };
 

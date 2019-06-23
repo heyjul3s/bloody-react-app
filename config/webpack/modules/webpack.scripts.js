@@ -1,4 +1,6 @@
-const UglifyWebpackPlugin = require("uglifyjs-webpack-plugin");
+const config = require('./../webpack.config.constants');
+const UglifyWebpackPlugin = require('uglifyjs-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 exports.loadJavaScript = ({ include, exclude = /node_modules/ }) => ({
   module: {
@@ -14,11 +16,11 @@ exports.loadJavaScript = ({ include, exclude = /node_modules/ }) => ({
             '@babel/preset-react',
             '@babel/preset-typescript',
             '@babel/preset-env'
-          ],
-        },
-      },
-    ],
-  },
+          ]
+        }
+      }
+    ]
+  }
 });
 
 exports.loadTypescript = ({ include, exclude = /node_modules|webpack/ }) => ({
@@ -39,19 +41,30 @@ exports.loadTypescript = ({ include, exclude = /node_modules|webpack/ }) => ({
           {
             loader: 'ts-loader',
             options: {
-              happyPackMode: true,
+              happyPackMode: true
             }
           }
         ]
-      },
+      }
     ]
   }
 });
 
 exports.minifyJavaScript = (options = {}) => ({
   optimization: {
-    minimizer: [
-      new UglifyWebpackPlugin(options)
-    ],
-  },
+    minimizer: [new UglifyWebpackPlugin(options)]
+  }
+});
+
+exports.forkTSchecker = (
+  options = {
+    // async to false so that errors are displayed via webpack devserver overlay
+    async: false,
+    watch: config.paths.app,
+    tsconfig: config.paths.tsconfig,
+    tslint: config.paths.tslint,
+    checkSyntacticErrors: true
+  }
+) => ({
+  plugins: [new ForkTsCheckerWebpackPlugin(options)]
 });

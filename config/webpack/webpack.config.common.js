@@ -1,8 +1,4 @@
 const merge = require('webpack-merge');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
-const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
-const WebpackPwaManifest = require('webpack-pwa-manifest');
 const scripts = require('./modules/webpack.scripts');
 const styles = require('./modules/webpack.styles');
 const assets = require('./modules/webpack.assets');
@@ -27,31 +23,18 @@ module.exports = env => {
         path: config.paths.build,
         chunkFilename: '[name].[hash:8].js',
         filename: '[name].[hash:8].js'
-      },
-      plugins: [
-        new WebpackPwaManifest({
-          name: 'BloodyReactApp',
-          short_name: 'BloodyReact',
-          description:
-            'A basic Typescript React app boilerplate to help you get started sans middleware store.',
-          background_color: '#ffffff',
-          icons: [
-            {
-              src: config.paths.favicon,
-              sizes: [96, 128, 192, 256, 384, 512]
-            }
-          ]
-        }),
-        new ManifestPlugin({
-          fileName: 'asset-manifest.json'
-        }),
-        new HTMLWebpackPlugin({
-          title: 'Bloody React App',
-          template: config.paths.index
-        }),
-        new CaseSensitivePathsPlugin()
-      ]
+      }
     },
+    utilities.defineEnv({
+      'process.env': {
+        NODE_ENV: JSON.stringify(env.NODE_ENV),
+        PLATFORM_ENV: JSON.stringify(env.PLATFORM_ENV)
+      }
+    }),
+    utilities.PWAmanifest(),
+    utilities.assetManifest(),
+    utilities.HTML(),
+    utilities.caseSensitivePaths(),
     scripts.loadTypescript({ include: config.paths.app }),
     scripts.loadJavaScript({ include: config.paths.app }),
     styles.loadCSS(),
