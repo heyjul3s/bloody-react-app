@@ -20,6 +20,7 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": false,
+    "resolveJsonModule": true,
     "strictNullChecks": true,
     "noFallthroughCasesInSwitch": true,
     "suppressImplicitAnyIndexErrors": true

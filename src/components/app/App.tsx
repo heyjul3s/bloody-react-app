@@ -1,7 +1,7 @@
-import * as React from "react";
-import "./App.sass";
+import * as React from 'react';
+// import './App.sass';
 
-class App extends React.Component<any, any> {
+export class App extends React.Component<{}, {}> {
   public render() {
     return (
       <div className="app">
@@ -16,5 +16,3 @@ class App extends React.Component<any, any> {
     );
   }
 }
-
-export default App;
