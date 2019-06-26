@@ -12,11 +12,16 @@ storiesOf('App', module)
   .addDecorator(withKnobs)
   .addDecorator(
     withTests({
-      results,
-      filesExt: '(/__tests__/.*|(\\.|/)(test|spec))\\.(ts|tsx|js)$'
+      results
     })
   )
   .addDecorator(jsxDecorator)
-  .add('App', () => {
-    return <App />;
-  });
+  .add(
+    'App',
+    () => {
+      return <App />;
+    },
+    {
+      jest: ['App.test.tsx']
+    }
+  );
