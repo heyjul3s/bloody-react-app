@@ -9,6 +9,7 @@ const config = {
     app: DIR_PATH('../../src'),
     build: DIR_PATH('../../build'),
     index: DIR_PATH('../../src/index.html'),
+    storybook: DIR_PATH('.storybbook'),
     tslint: DIR_PATH('../../tslint.json'),
     tsconfig: DIR_PATH('../../tsconfig.json'),
     favicon: DIR_PATH('../../src/assets/images/1900px-webpack_logo.png')

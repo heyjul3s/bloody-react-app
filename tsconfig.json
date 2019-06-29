@@ -33,6 +33,8 @@
     "dist",
     "jest",
     "node_modules",
-    "webpack"
+    "webpack",
+    "**/*.stories.ts",
+    "**/*.stories.tsx"
   ]
 }

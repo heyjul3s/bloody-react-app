@@ -1,6 +1,5 @@
 const merge = require('webpack-merge');
 const scripts = require('./modules/webpack.scripts');
-const styles = require('./modules/webpack.styles');
 const assets = require('./modules/webpack.assets');
 const utilities = require('./modules/webpack.utilities');
 const config = require('./webpack.config.constants');
@@ -36,8 +35,10 @@ module.exports = env => {
     utilities.HTML(),
     utilities.caseSensitivePaths(),
     scripts.loadTypescript({ include: config.paths.app }),
-    scripts.loadJavaScript({ include: config.paths.app }),
-    styles.loadCSS(),
+    scripts.loadJavaScript({
+      include: config.paths.app,
+      exclude: config.paths.storybbook
+    }),
     assets.loadFonts({
       options: {
         name: '[name].[hash:4].[ext]'
