@@ -1,8 +1,8 @@
+const assets = require('./modules/webpack.assets');
 const merge = require('webpack-merge');
 const scripts = require('./modules/webpack.scripts');
-const assets = require('./modules/webpack.assets');
+const settings = require('./settings');
 const utilities = require('./modules/webpack.utilities');
-const config = require('./webpack.config.constants');
 
 module.exports = env => {
   return merge([
@@ -13,13 +13,13 @@ module.exports = env => {
     {
       bail: true,
       entry: {
-        app: config.paths.app
+        app: settings.paths.app
       },
       resolve: {
         extensions: ['.tsx', '.ts', '.js']
       },
       output: {
-        path: config.paths.build,
+        path: settings.paths.build,
         chunkFilename: '[name].[hash:8].js',
         filename: '[name].[hash:8].js'
       }
@@ -30,14 +30,13 @@ module.exports = env => {
         PLATFORM_ENV: JSON.stringify(env.PLATFORM_ENV)
       }
     }),
-    utilities.PWAmanifest(),
-    utilities.assetManifest(),
     utilities.HTML(),
+    utilities.assetManifest(),
+    utilities.PWAmanifest(),
     utilities.caseSensitivePaths(),
-    scripts.loadTypescript({ include: config.paths.app }),
+    scripts.loadTypescript({ include: settings.paths.app }),
     scripts.loadJavaScript({
-      include: config.paths.app,
-      exclude: config.paths.storybbook
+      include: settings.paths.app
     }),
     assets.loadFonts({
       options: {

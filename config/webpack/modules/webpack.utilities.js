@@ -5,7 +5,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const GitRevision = require('git-revision-webpack-plugin');
-const config = require('./../webpack.config.constants');
+const settings = require('../settings');
 
 exports.defineEnv = options => ({
   plugins: [new webpack.DefinePlugin(options)]
@@ -32,25 +32,15 @@ exports.attachRevision = () => ({
   ]
 });
 
+exports.banner = (options = settings.banner) => ({
+  plugins: [new webpack.BannerPlugin(options)]
+});
+
 exports.generateSourceMaps = ({ type }) => ({
   devtool: type
 });
 
-exports.PWAmanifest = (
-  options = {
-    name: 'BloodyReactApp',
-    short_name: 'BloodyReact',
-    description:
-      'A basic Typescript React app boilerplate to help you get started sans middleware store.',
-    background_color: '#ffffff',
-    icons: [
-      {
-        src: config.paths.favicon,
-        sizes: [96, 128, 192, 256, 384, 512]
-      }
-    ]
-  }
-) => ({
+exports.PWAmanifest = (options = settings.PWAmanifestConfig) => ({
   plugins: [new WebpackPwaManifest(options)]
 });
 
@@ -62,12 +52,7 @@ exports.assetManifest = (
   plugins: [new ManifestPlugin(options)]
 });
 
-exports.HTML = (
-  options = {
-    title: 'Bloody React App',
-    template: config.paths.index
-  }
-) => ({
+exports.HTML = (options = settings.HTMLwebpackConfig) => ({
   plugins: [new HTMLWebpackPlugin(options)]
 });
 

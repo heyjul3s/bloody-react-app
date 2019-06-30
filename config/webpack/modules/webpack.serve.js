@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const config = require('./../webpack.config.constants');
+const settings = require('../settings');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 exports.devServer = ({ host, port } = {}) => ({
@@ -22,9 +22,9 @@ exports.browserSync = () => ({
   plugins: [
     new BrowserSyncPlugin(
       {
-        host: config.server.host,
-        port: config.server.port,
-        proxy: config.server.proxy
+        host: settings.server.host,
+        port: settings.server.port,
+        proxy: settings.server.proxy
       },
       {
         reload: false

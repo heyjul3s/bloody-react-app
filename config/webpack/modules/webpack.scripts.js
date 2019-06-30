@@ -1,4 +1,4 @@
-const config = require('./../webpack.config.constants');
+const settings = require('../settings');
 const UglifyWebpackPlugin = require('uglifyjs-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
@@ -60,9 +60,9 @@ exports.forkTSchecker = (
   options = {
     // async to false so that errors are displayed via webpack devserver overlay
     async: false,
-    watch: config.paths.app,
-    tsconfig: config.paths.tsconfig,
-    tslint: config.paths.tslint,
+    watch: settings.paths.app,
+    tsconfig: settings.paths.tsconfig,
+    tslint: settings.paths.tslint,
     checkSyntacticErrors: true
   }
 ) => ({
