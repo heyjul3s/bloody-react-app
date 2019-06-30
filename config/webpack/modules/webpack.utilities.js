@@ -1,4 +1,6 @@
 const webpack = require('webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
@@ -55,3 +57,11 @@ exports.HTML = (options = settings.HTMLwebpackConfig) => ({
 exports.caseSensitivePaths = () => ({
   plugins: [new CaseSensitivePathsPlugin()]
 });
+
+exports.analyseBundle = () => {
+  if (process.env.ANALYSE_BUNDLE) {
+    return {
+      plugins: [new BundleAnalyzerPlugin()]
+    };
+  }
+};

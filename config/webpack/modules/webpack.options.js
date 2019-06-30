@@ -13,7 +13,9 @@ const baseOptions = {
     path: settings.paths.build,
     chunkFilename: '[name].[hash:8].js',
     filename: '[name].[hash:8].js'
-  }
+  },
+  // * add dependencies to exclude here
+  externals: {}
 };
 
 exports.config = (options = {}) => ({

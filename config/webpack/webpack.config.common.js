@@ -35,6 +35,7 @@ module.exports = env => {
         limit: 8000,
         name: 'static/images/[name].[hash:4].[ext]'
       }
-    })
+    }),
+    utilities.analyseBundle()
   ]);
 };
