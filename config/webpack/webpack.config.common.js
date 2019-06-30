@@ -3,27 +3,12 @@ const merge = require('webpack-merge');
 const scripts = require('./modules/webpack.scripts');
 const settings = require('./settings');
 const utilities = require('./modules/webpack.utilities');
+const options = require('./modules/webpack.options');
 
 module.exports = env => {
   return merge([
-    utilities.generateSourceMaps({
-      type: 'inline-source-map'
-    }),
+    options.config(),
     utilities.clean(),
-    {
-      bail: true,
-      entry: {
-        app: settings.paths.app
-      },
-      resolve: {
-        extensions: ['.tsx', '.ts', '.js']
-      },
-      output: {
-        path: settings.paths.build,
-        chunkFilename: '[name].[hash:8].js',
-        filename: '[name].[hash:8].js'
-      }
-    },
     utilities.defineEnv({
       'process.env': {
         NODE_ENV: JSON.stringify(env.NODE_ENV),
@@ -34,7 +19,9 @@ module.exports = env => {
     utilities.assetManifest(),
     utilities.PWAmanifest(),
     utilities.caseSensitivePaths(),
-    scripts.loadTypescript({ include: settings.paths.app }),
+    scripts.loadTypescript({
+      include: settings.paths.app
+    }),
     scripts.loadJavaScript({
       include: settings.paths.app
     }),

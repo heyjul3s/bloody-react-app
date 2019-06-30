@@ -1,7 +1,7 @@
 const paths = require('./paths');
 
 const HTMLwebpackConfigDefault = {
-  title: 'Some TItle',
+  title: 'React App',
   template: paths.HTMLtemplate
 };
 

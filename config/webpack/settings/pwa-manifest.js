@@ -18,8 +18,8 @@ const favIcons = (() => {
 })();
 
 exports.PWAmanifestConfig = {
-  name: 'BloodyReactApp',
-  short_name: 'BloodyReact',
+  name: 'React App',
+  short_name: 'React',
   description:
     'A basic Typescript React app boilerplate to help you get started',
   background_color: '#ffffff',

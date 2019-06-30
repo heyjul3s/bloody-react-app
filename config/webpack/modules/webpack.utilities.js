@@ -36,10 +36,6 @@ exports.banner = (options = settings.banner) => ({
   plugins: [new webpack.BannerPlugin(options)]
 });
 
-exports.generateSourceMaps = ({ type }) => ({
-  devtool: type
-});
-
 exports.PWAmanifest = (options = settings.PWAmanifestConfig) => ({
   plugins: [new WebpackPwaManifest(options)]
 });
