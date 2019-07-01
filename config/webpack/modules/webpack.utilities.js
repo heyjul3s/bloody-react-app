@@ -50,7 +50,7 @@ exports.assetManifest = (
   plugins: [new ManifestPlugin(options)]
 });
 
-exports.HTML = (options = settings.HTMLwebpackConfig) => ({
+exports.HTML = (options = settings.HTML.development) => ({
   plugins: [new HTMLWebpackPlugin(options)]
 });
 

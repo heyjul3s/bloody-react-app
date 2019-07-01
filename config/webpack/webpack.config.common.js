@@ -15,7 +15,7 @@ module.exports = env => {
         PLATFORM_ENV: JSON.stringify(env.PLATFORM_ENV)
       }
     }),
-    utilities.HTML(),
+    utilities.HTML(settings.HTML[env.NODE_ENV]),
     utilities.assetManifest(),
     utilities.PWAmanifest(),
     utilities.caseSensitivePaths(),

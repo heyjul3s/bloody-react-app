@@ -20,7 +20,11 @@ const HTMLWebpackMinifyConfig = {
   }
 };
 
-exports.HTMLwebpackConfig =
-  process.env.NODE_ENV === 'production'
-    ? { ...HTMLwebpackConfigDefault, ...HTMLWebpackMinifyConfig }
-    : HTMLwebpackConfigDefault;
+exports.development = {
+  ...HTMLwebpackConfigDefault
+};
+
+exports.production = {
+  ...HTMLwebpackConfigDefault,
+  ...HTMLWebpackMinifyConfig
+};

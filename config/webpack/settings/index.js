@@ -8,7 +8,7 @@ const banner = require('./banner');
 module.exports = {
   paths: { ...paths },
   server: { ...server },
-  ...html,
+  HTML: { ...html },
   ...icons,
   ...PWAmanifest,
   banner
