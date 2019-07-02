@@ -1,5 +1,5 @@
-import * as React from "react";
-import { render } from "react-dom";
-import App from "./components/app/App";
+import * as React from 'react';
+import { render } from 'react-dom';
+import App from './components/app/App';
 
-render(<App />, document.getElementById("root") as HTMLElement);
+render(<App />, document.getElementById('root') as HTMLElement);

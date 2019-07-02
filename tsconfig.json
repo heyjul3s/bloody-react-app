@@ -20,6 +20,7 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": false,
+    "resolveJsonModule": true,
     "strictNullChecks": true,
     "noFallthroughCasesInSwitch": true,
     "suppressImplicitAnyIndexErrors": true
@@ -32,6 +33,8 @@
     "dist",
     "jest",
     "node_modules",
-    "webpack"
+    "webpack",
+    "**/*.stories.ts",
+    "**/*.stories.tsx"
   ]
 }

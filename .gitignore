@@ -42,8 +42,8 @@ npm-debug.log
 # misc
 .editorconfig
 .cache-loader
-build
-dist
+/build/
+/dist/
 
 # OSX
 .DS_Store

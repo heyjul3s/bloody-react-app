@@ -2,28 +2,30 @@ exports.loadImages = ({ include, exclude, options } = {}) => ({
   module: {
     rules: [
       {
-        test: /\.(gif|png|jpg|svg)$/,
+        test: /\.(gif|png|jpg|svg|webp)$/,
         include,
         exclude,
         use: {
           loader: 'url-loader',
-          options,
-        },
-      },
-    ],
-  },
+          options
+        }
+      }
+    ]
+  }
 });
 
 exports.loadFonts = ({ include, exclude, options } = {}) => ({
   module: {
-    rules: [{
-      test: /\.(eot|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-      include,
-      exclude,
-      use: {
-        loader: 'file-loader',
-        options,
-      },
-    }],
-  },
+    rules: [
+      {
+        test: /\.(eot|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+        include,
+        exclude,
+        use: {
+          loader: 'file-loader',
+          options
+        }
+      }
+    ]
+  }
 });
