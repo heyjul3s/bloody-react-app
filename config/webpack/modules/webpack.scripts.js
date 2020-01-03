@@ -41,7 +41,7 @@ exports.loadTypescript = ({ include, exclude = /node_modules|webpack/ }) => ({
           {
             loader: 'ts-loader',
             options: {
-              happyPackMode: true
+              transpileOnly: true
             }
           }
         ]
@@ -58,12 +58,13 @@ exports.minifyJavaScript = (options = {}) => ({
 
 exports.forkTSchecker = (
   options = {
-    // async to false so that errors are displayed via webpack devserver overlay
+    // * async to false so that errors are displayed via webpack devserver overlay
     async: false,
     watch: settings.paths.app,
     tsconfig: settings.paths.tsconfig,
-    tslint: settings.paths.tslint,
-    checkSyntacticErrors: true
+    checkSyntacticErrors: true,
+    eslint: true,
+    reportFiles: ['src/**/*.{ts,tsx}']
   }
 ) => ({
   plugins: [new ForkTsCheckerWebpackPlugin(options)]
