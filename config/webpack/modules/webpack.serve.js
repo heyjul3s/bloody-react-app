@@ -24,7 +24,8 @@ exports.browserSync = () => ({
       {
         host: settings.server.host,
         port: settings.server.port,
-        proxy: settings.server.proxy
+        proxy: settings.server.proxy,
+        open: false
       },
       {
         reload: false
