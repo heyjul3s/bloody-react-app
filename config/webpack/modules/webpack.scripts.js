@@ -50,12 +50,6 @@ exports.loadTypescript = ({ include, exclude = /node_modules|webpack/ }) => ({
   }
 });
 
-exports.minifyJavaScript = (options = {}) => ({
-  optimization: {
-    minimizer: [new UglifyWebpackPlugin(options)]
-  }
-});
-
 exports.forkTSchecker = (
   options = {
     // * async to false so that errors are displayed via webpack devserver overlay
