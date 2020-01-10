@@ -45,6 +45,7 @@ npm-debug.log
 /build/
 /dist/
 coverage
+.docz
 
 # OSX
 .DS_Store
