@@ -1,5 +1,4 @@
 const settings = require('../settings');
-const UglifyWebpackPlugin = require('uglifyjs-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 exports.loadJavaScript = ({ include, exclude = /node_modules/ }) => ({
@@ -31,13 +30,13 @@ exports.loadTypescript = ({ include, exclude = /node_modules|webpack/ }) => ({
         include,
         exclude,
         use: [
-          {
-            loader: 'cache-loader'
-          },
-          {
-            loader: 'thread-loader',
-            options: { workers: require('os').cpus().length - 1 }
-          },
+          // {
+          //   loader: 'thread-loader',
+          //   options: {
+          //   workers: require('os').cpus().length - 1
+          // }
+          // },
+          'cache-loader',
           {
             loader: 'ts-loader',
             options: {

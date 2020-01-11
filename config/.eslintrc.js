@@ -1,4 +1,4 @@
-const settings = require('./config/webpack/settings');
+const settings = require('./webpack/settings');
 
 module.exports = {
   parser: '@typescript-eslint/parser',
