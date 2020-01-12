@@ -1,6 +1,6 @@
 # Bloody React App
 
-A basic Webpack 4.34 starter kit for React 16+ apps.
+A basic Webpack 4.4+ starter kit for React 16+ apps.
 
 This kit has:
 
@@ -9,7 +9,7 @@ This kit has:
 - Typescript
 - ESLint
 - Styled Components with Styled System
-- Webpack 4.41+
+- Webpack 4.4+
 - BrowserSync
 - Docz
 - App manifest (manifest.json) and asset manifest (asset-manifest.json)
