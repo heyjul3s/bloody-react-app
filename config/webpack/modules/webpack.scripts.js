@@ -1,5 +1,4 @@
 const settings = require('../settings');
-const UglifyWebpackPlugin = require('uglifyjs-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 exports.loadJavaScript = ({ include, exclude = /node_modules/ }) => ({
@@ -31,17 +30,17 @@ exports.loadTypescript = ({ include, exclude = /node_modules|webpack/ }) => ({
         include,
         exclude,
         use: [
-          {
-            loader: 'cache-loader'
-          },
-          {
-            loader: 'thread-loader',
-            options: { workers: require('os').cpus().length - 1 }
-          },
+          // {
+          //   loader: 'thread-loader',
+          //   options: {
+          //   workers: require('os').cpus().length - 1
+          // }
+          // },
+          'cache-loader',
           {
             loader: 'ts-loader',
             options: {
-              happyPackMode: true
+              transpileOnly: true
             }
           }
         ]
@@ -50,20 +49,15 @@ exports.loadTypescript = ({ include, exclude = /node_modules|webpack/ }) => ({
   }
 });
 
-exports.minifyJavaScript = (options = {}) => ({
-  optimization: {
-    minimizer: [new UglifyWebpackPlugin(options)]
-  }
-});
-
 exports.forkTSchecker = (
   options = {
-    // async to false so that errors are displayed via webpack devserver overlay
+    // * async to false so that errors are displayed via webpack devserver overlay
     async: false,
     watch: settings.paths.app,
     tsconfig: settings.paths.tsconfig,
-    tslint: settings.paths.tslint,
-    checkSyntacticErrors: true
+    checkSyntacticErrors: true,
+    eslint: true,
+    reportFiles: ['src/**/*.{ts,tsx}']
   }
 ) => ({
   plugins: [new ForkTsCheckerWebpackPlugin(options)]
