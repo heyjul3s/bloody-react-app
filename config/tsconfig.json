@@ -23,7 +23,8 @@
     "resolveJsonModule": true,
     "strictNullChecks": true,
     "noFallthroughCasesInSwitch": true,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "importsNotUsedAsValues": "preserve"
   },
   "include": ["src/**/*"],
   "exclude": [
