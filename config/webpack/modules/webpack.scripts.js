@@ -30,12 +30,6 @@ exports.loadTypescript = ({ include, exclude = /node_modules|webpack/ }) => ({
         include,
         exclude,
         use: [
-          // {
-          //   loader: 'thread-loader',
-          //   options: {
-          //   workers: require('os').cpus().length - 1
-          // }
-          // },
           'cache-loader',
           {
             loader: 'ts-loader',
@@ -53,11 +47,13 @@ exports.forkTSchecker = (
   options = {
     // * async to false so that errors are displayed via webpack devserver overlay
     async: false,
-    watch: settings.paths.app,
-    tsconfig: settings.paths.tsconfig,
-    checkSyntacticErrors: true,
-    eslint: true,
-    reportFiles: ['src/**/*.{ts,tsx}']
+    typescript: {
+      configFile: settings.paths.tsconfig
+    },
+    eslint: {
+      configFile: './config/.eslintrc.js',
+      files: './src/**/*.{ts,tsx,js,jsx}'
+    }
   }
 ) => ({
   plugins: [new ForkTsCheckerWebpackPlugin(options)]
