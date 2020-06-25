@@ -1,6 +1,6 @@
 # Bloody React App
 
-A basic Webpack 4.4+ starter kit for React 16+ apps.
+A basic Webpack 4.43 starter kit for React 16.13+ apps.
 
 This kit has:
 
@@ -9,7 +9,7 @@ This kit has:
 - Typescript
 - ESLint
 - Styled Components with Styled System
-- Webpack 4.4+
+- Webpack 4.43
 - BrowserSync
 - Docz
 - App manifest (manifest.json) and asset manifest (asset-manifest.json)
@@ -34,7 +34,7 @@ or do it the old-fashioned way:
 
 | Script                   | Description                                      |
 | ------------------------ | ------------------------------------------------ |
-| `yarn start`             | Starts up a local dev server for development     |
+| `yarn dev`               | Starts up a local dev server for development     |
 | `yarn build`             | Builds the project for production                |
 | `yarn profile-build`     | Builds the project with stats                    |
 | `yarn test`              | Runs Jest once for all your tests                |
@@ -56,11 +56,14 @@ Below is an overview the structure
 ├── config/
 │   └── webpack
 │     └── modules
-│       └── webpack.assets.js
 │       └── webpack.options.js
-│       └── webpack.scripts.js
-│       └── webpack.serve.js
-│       └── webpack.utilities.js
+│       └── webpack.plugins.html.js
+│       └── webpack.plugins.scripts.js
+│       └── webpack.plugins.serve.js
+│       └── webpack.plugins.utils.js
+│       └── webpack.rules.assets.js
+│       └── webpack.rules.scripts.js
+
 │     └── settings
 │       └── banner.js
 │       └── html.js
@@ -72,7 +75,10 @@ Below is an overview the structure
 │     └── webpack.config.common.js
 │     └── webpack.config.dev.js
 │     └── webpack.config.prod.js
-│   └── enzyme.config.ts
+│   └── babel.config.js
+│   └── docz.js
+│   └── jest.config.js
+│   └── prettier.config.js
 ├── src/
 │   └── assets/
 │   └── components/
