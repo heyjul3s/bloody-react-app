@@ -51,7 +51,6 @@ exports.forkTSchecker = (
       configFile: settings.paths.tsconfig
     },
     eslint: {
-      configFile: './config/.eslintrc.js',
       files: './src/**/*.{ts,tsx,js,jsx}'
     }
   }
