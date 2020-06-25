@@ -2,7 +2,7 @@ const assets = require('./modules/webpack.rules.assets');
 const scripts = require('./modules/webpack.rules.scripts');
 const settings = require('./settings');
 const utils = require('./modules/webpack.plugins.utils');
-const options = require('./modules/webpack.rules.options');
+const options = require('./modules/webpack.options');
 const web = require('./modules/webpack.plugins.html');
 
 module.exports = (env) => {
