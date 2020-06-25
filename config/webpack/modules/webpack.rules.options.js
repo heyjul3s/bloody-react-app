@@ -1,5 +1,6 @@
 const settings = require('../settings');
 
+// TODO: add module alias
 const baseOptions = {
   bail: true,
   devtool: 'inline-source-map',

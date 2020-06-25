@@ -1,27 +1,28 @@
 const commonConfig = require('./webpack.config.common');
 const merge = require('webpack-merge');
-const scripts = require('./modules/webpack.scripts');
-const serve = require('./modules/webpack.serve');
+const scripts = require('./modules/webpack.plugins.scripts');
+const serve = require('./modules/webpack.plugins.serve');
 const settings = require('./settings');
-const utilities = require('./modules/webpack.utilities');
+const utils = require('./modules/webpack.plugins.utils');
 
 const devConfig = (env = { NODE_ENV: 'development', PLATFORM_ENV: 'web' }) => {
-  return merge([
-    {
-      mode: env.NODE_ENV,
-      performance: {
-        hints: false
-      }
+  return {
+    mode: env.NODE_ENV,
+    performance: {
+      hints: false
     },
-    utilities.banner(),
-    scripts.forkTSchecker(),
-    serve.browserSync(),
-    serve.devServer({
+    devServer: serve.devServer({
       open: false,
       host: settings.server.host,
       port: settings.server.port
-    })
-  ]);
+    }),
+    plugins: [
+      utils.banner(),
+      scripts.forkTSchecker(),
+      serve.browserSync(),
+      serve.HMR()
+    ]
+  };
 };
 
-module.exports = env => merge(commonConfig(env), devConfig(env));
+module.exports = (env) => merge(commonConfig(env), devConfig(env));
