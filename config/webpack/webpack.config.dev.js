@@ -1,11 +1,11 @@
 const commonConfig = require('./webpack.config.common');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const scripts = require('./modules/webpack.plugins.scripts');
 const serve = require('./modules/webpack.plugins.serve');
 const settings = require('./settings');
 const utils = require('./modules/webpack.plugins.utils');
 
-const devConfig = (env = { NODE_ENV: 'development', PLATFORM_ENV: 'web' }) => {
+const devConfig = (env = { NODE_ENV: 'development' }) => {
   return {
     mode: env.NODE_ENV,
     performance: {

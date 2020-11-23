@@ -12,21 +12,19 @@ const StyledParagraph = styled.p`
   ${color}
 `;
 
-export class App extends React.Component<{}, {}> {
-  public render() {
-    return (
-      <ThemeProvider theme={theme}>
-        <React.Fragment>
-          <StyledHeader>
-            <h1>Hello There.</h1>
-          </StyledHeader>
+export function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <React.Fragment>
+        <StyledHeader>
+          <h1>Hello There.</h1>
+        </StyledHeader>
 
-          <StyledParagraph color="black">
-            Much work needs to be done. You may start your journey to world
-            domination from <code>src/components/App.tsx</code>.
-          </StyledParagraph>
-        </React.Fragment>
-      </ThemeProvider>
-    );
-  }
+        <StyledParagraph color="black">
+          Much work needs to be done. You may start your journey to world
+          domination from <code>src/components/App.tsx</code>.
+        </StyledParagraph>
+      </React.Fragment>
+    </ThemeProvider>
+  );
 }

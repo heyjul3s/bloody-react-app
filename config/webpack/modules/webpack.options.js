@@ -1,6 +1,5 @@
 const settings = require('../settings');
 
-// TODO: add module alias
 const baseOptions = {
   bail: true,
   devtool: 'inline-source-map',
@@ -8,14 +7,13 @@ const baseOptions = {
     app: settings.paths.app
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js']
+    extensions: ['.tsx', '.ts', '.js', '.jsx']
   },
   output: {
     path: settings.paths.build,
-    chunkFilename: '[name].[hash:8].js',
-    filename: '[name].[hash:8].js'
+    chunkFilename: '[name].[fullhash:8].js',
+    filename: '[name].[fullhash:8].js'
   },
-  // * add dependencies to exclude here
   externals: {}
 };
 

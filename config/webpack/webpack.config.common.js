@@ -38,7 +38,6 @@ module.exports = (env) => {
         }
       }),
       web.HTML(settings.HTML[env.NODE_ENV]),
-      web.assetManifest(),
       web.PWAmanifest(),
       utils.caseSensitivePaths(),
       utils.analyseBundle()

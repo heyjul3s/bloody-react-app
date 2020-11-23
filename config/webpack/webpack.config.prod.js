@@ -1,7 +1,7 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const commonConfig = require('./webpack.config.common');
 
-const prodConfig = (env = { NODE_ENV: 'production', PLATFORM_ENV: 'web' }) => {
+const prodConfig = (env = { NODE_ENV: 'production' }) => {
   return {
     mode: env.NODE_ENV,
     optimization: {
