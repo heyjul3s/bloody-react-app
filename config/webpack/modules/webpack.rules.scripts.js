@@ -1,6 +1,3 @@
-const settings = require('../settings');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-
 exports.loadJavaScript = ({ include, exclude = /node_modules/ }) => ({
   test: /\.jsx?$/,
   include,
