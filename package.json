@@ -1,7 +1,7 @@
 {
   "name": "bloody-react-app",
   "version": "1.0.2",
-  "author": "Julian Low <julian.cy.low@gmail.com>",
+  "author": "Julian Low",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/heyjul3s/bloody-react-app"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://github.com/heyjul3s/bloody-react-app"
   },
-  "description": "A basic Typescript React app boilerplate to help you get started sans middleware store.",
+  "description": "A basic Typescript React app boilerplate to help you get started.",
   "main": "./src/index.js",
   "keywords": [
     "react",
@@ -34,15 +34,12 @@
   "scripts": {
     "dev": "cross-env BABEL_ENV=development webpack serve --config config/webpack/webpack.config.dev.js --env development",
     "build": "cross-env BABEL_ENV=production webpack --config=config/webpack/webpack.config.prod.js --env production",
-    "profile-build": "webpack --mode production --json --profile --progress > build-stats-prod.json",
-    "analyse-build": "cross-env ANALYSE_BUNDLE=true BABEL_ENV=production webpack --config=config/webpack/webpack.config.prod.js --env.NODE_ENV=production --info --progress --colors --display-error-details",
+    "analyse-build": "cross-env ANALYSE_BUNDLE=true BABEL_ENV=production webpack --config=config/webpack/webpack.config.prod.js --env production",
     "test": "jest -c config/jest.config.js",
     "test-changed": "test -o",
     "test-watch": "test --watchAll",
     "test-update-snaps": "test -u",
-    "prettify": "prettier --write './src/**/*.{ts,tsx}'",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "prettify": "prettier --write './src/**/*.{ts,tsx}'"
   },
   "dependencies": {
     "react": "^17.0.1",
@@ -52,7 +49,7 @@
     "styled-system": "^5.1.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.7",
+    "@babel/core": "^7.12.8",
     "@babel/plugin-proposal-decorators": "^7.12.1",
     "@babel/plugin-syntax-decorators": "^7.12.1",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
@@ -60,18 +57,14 @@
     "@babel/preset-env": "^7.12.7",
     "@babel/preset-react": "^7.12.7",
     "@babel/preset-typescript": "^7.12.7",
-    "@storybook/addon-actions": "^6.1.2",
-    "@storybook/addon-essentials": "^6.1.2",
-    "@storybook/addon-links": "^6.1.2",
-    "@storybook/react": "^6.1.2",
     "@testing-library/react": "^11.2.2",
     "@types/jest": "^26.0.15",
     "@types/node": "^14.14.9",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/webpack-env": "^1.15.3",
-    "@typescript-eslint/eslint-plugin": "^4.8.1",
-    "@typescript-eslint/parser": "^4.8.1",
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/parser": "^4.8.2",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.1",
     "browser-sync": "^2.26.13",
